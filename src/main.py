@@ -50,7 +50,7 @@ def set_stop_loss():
 			buf_price = exchange.fetch_ticker(symbol=symbol)
 			lprice = buf_price.get('info').get('lastPrice')
 			if positionside == 'LONG':
-				SLPrice = float(pst.get('entryPrice'))*0.99999
+				SLPrice = float(pst.get('entryPrice'))*0.99
 				print(buf_price)
 				buf_order = exchange.fetch_orders(symbol=symbol)
 				cur_order = [idy for idy, corder in enumerate(buf_order) if (corder.get('info').get('type') == 'STOP_MARKET' and corder.get('info').get('status') == 'NEW' and corder.get('info').get('positionSide') == 'LONG')]
@@ -62,7 +62,7 @@ def set_stop_loss():
 					bot_status = 2
 				else: bot_status = 1
 			elif positionside == 'SHORT': 
-				SLPrice = float(pst.get('entryPrice'))*1.00001
+				SLPrice = float(pst.get('entryPrice'))*1.01
 				buf_order = exchange.fetch_orders(symbol=symbol)
 				cur_order = [idy for idy, corder in enumerate(buf_order) if (corder.get('info').get('type') == 'STOP_MARKET' and corder.get('info').get('status') == 'NEW' and corder.get('info').get('positionSide') == 'SHORT')]
 				if((float(lprice) - SLPrice > 0) and (len(cur_order) == 0)):
