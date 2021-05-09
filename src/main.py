@@ -31,7 +31,7 @@ def autorefill(f):
 	while True:
 		t = threading.Thread(target=f)
 		t.start()
-		n_time = ((b_time-time.time()) % 10) or 10
+		n_time = ((b_time-time.time()) % 60) or 60
 		time.sleep(n_time)
 
 def set_stop_loss():
