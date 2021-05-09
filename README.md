@@ -16,7 +16,7 @@ BinanceFのポジションを決められた位置で無理やり損切りさせ
   $ pip install ccxt
 ```
 ## 2.
-  binanceのApi keyとApi Secretをsrc/apidataに書き込む
+  binanceのApi keyとSecret keyを, それぞれsrc/apidata.pyのmy_api_keyとmy_secret_keyに書き込む
 ## 3.
 ```
   $ ./main.py
@@ -25,8 +25,8 @@ BinanceFのポジションを決められた位置で無理やり損切りさせ
 ## Change the stop Loss price
   ロングなら53行目、ショートなら65行目を変更
   ```
-    				SLPrice = float(pst.get('entryPrice'))*0.99 #ロング版の初期値　floatでないとエラーが出る
-            SLPrice = float(pst.get('entryPrice'))*1.01 #ショート版の初期値
+SLPrice = float(pst.get('entryPrice'))*0.99 #ロング版の初期値　floatでないとエラーが出る
+SLPrice = float(pst.get('entryPrice'))*1.01 #ショート版の初期値
   ```
 # known issues
   - Perp USDTペア以外(BTCBUSDとか限月つき先物系)はSLをつけられずにエラーが発生する(symbolの書き換えが適当なせい)
