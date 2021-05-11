@@ -70,7 +70,7 @@ def set_stop_loss():
                     bot_status = 3
                 elif(len(cur_order) == 0):
                     exchange.create_order(symbol=symbol, type="STOP_MARKET", side="buy",amount=abs(posamount),  params={"closePosition": True, "stopPrice": SLPrice, "positionSide": "SHORT", "priceProtect": "TRUE"})
-bot_status = 2
+                    bot_status = 2
                 else: bot_status = 1
             if bot_status == 3:
                 print(f'{symbol} {positionside} is closed by this bot due to exceed the stop loss Price instead of poor trader like you. DO NOT CHANGE OR REMOVE THE STOP LOSS!!!!!!!!!!!!!!!')
