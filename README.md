@@ -2,6 +2,13 @@
 
 dev edition
 
+# Required Package(予定)
+ - ccxt
+ - flask
+ - db?
+ - cython?
+
+
 # yarukoto
 
  - ペアごとの設定
